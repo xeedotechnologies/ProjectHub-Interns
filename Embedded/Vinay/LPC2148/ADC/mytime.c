@@ -1,18 +1,8 @@
-/******************************************************************************/
-/*  This file is part of the uVision/ARM development tools                    */
-/*  Copyright KEIL ELEKTRONIK GmbH 2002-2004                                  */
-/******************************************************************************/
-/*                                                                            */
-/*  TIME.C:  Time Functions for 100Hz Clock Tick                              */
-/*                                                                            */
-/******************************************************************************/
-
 #include <LPC21XX.H>                          // LPC21XX Peripheral Registers
 
 
 long timeval;
 
-/* Timer Counter 0 Interrupt executes each 10ms @ 60 MHz CPU Clock */
 void tc0 (void) __irq  {
   ++timeval;
   T0IR        = 1;                            // Clear interrupt flag
@@ -20,7 +10,7 @@ void tc0 (void) __irq  {
 }
 
 
-/* Setup the Timer Counter 0 Interrupt */
+
 void init_timer (void) {
   T0MR0 = 149999; //149999;                            // 10mSec = 150.000-1 counts
   T0MCR = 3;                                  // Interrupt and Reset on MR0

@@ -1,14 +1,3 @@
-/*=======================================================
-DATE:03-10-2020
-
-ARM7 MODULE:		LPC214X STICK
-
-
-LCD :  P1.16--P1.23/ARM7-----D0-D7/LCD  & P1.24,P1.25,P1.26-----RS,WR,EN /LCD
-
-=======================================================*/
-
-
 #include <LPC214X.H>                        /* LPC214x definitions */
 
 
@@ -132,7 +121,7 @@ void WaitForEnable( void ) {
 	delay(1);
 	Io_Set1(Elcm);
 	delayms(10);
-	//	i=IO1PIN;		//∂¡P1	
+	//	i=IO1PIN;		//¬∂√ÅP1	
 	while( IO1PIN & busy );
 	Io_Clr1(Elcm);
 }	
